@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My app</title>
+    <!-- Podkluchaem Telegram Api Web APP-->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; text-align: center; padding: 20px;}
+        button { padding: 10px 20px; font-size: 16px; margin-top: 20px; cursor: pointer;}
+    </style>
+</head>
+<body>
+    <h1>Hello, <span id="user"></span>!</h1>
+    <p>This is a mini app.</p>
+    <button onclick="closeApp()">Close</button>
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand(); // Expand on whole screen
+        document.getElementById('user').innerText = tg.initDataUnsafe.user.first_name;
+        function closeApp() {
+            tg.close();
+        }
+    </script>
+</body>
+</html>
